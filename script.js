@@ -15,6 +15,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
     loadAndRenderRepos();
   }
 
+  updateRepositoryCount();
+
 
   function loadAndRenderRepos() {
     let url = "https://hackclub.com/api/contribute/";
@@ -183,5 +185,20 @@ window.addEventListener("DOMContentLoaded", (event) => {
   function showErrorMessage() {
     let errorEl = document.querySelector("[data-tag='error']");
     errorEl.classList.remove("hidden");
+  }
+
+  async function fetchRepositoryCount() {
+    const response = await (await fetch("https://api.github.com/orgs/hackclub")).json();
+    return response.public_repos;
+  }
+
+  async function updateRepositoryCount() {
+    const counter = document.getElementById("repository-count");
+    const overText = document.getElementById("over");
+    const repositoryCount = await fetchRepositoryCount();
+
+    counter.innerText = repositoryCount;
+
+    overText.remove();
   }
 });
