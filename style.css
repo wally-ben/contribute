@@ -52,6 +52,12 @@ ul {
   font-size: var(--font-3);
 }
 
+@media (max-width: 48em) {
+  .card {
+    padding: 5px
+  }
+}
+
 .blurb {
   border-radius: var(--radii-default);
   padding: var(--spacing-4);
@@ -88,12 +94,6 @@ header > p > a {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--spacing-3);
-}
-
-@media (max-width: 768px) {
-  .repos ul {
-    grid-template-columns: 1fr;
-  }
 }
 
 .repo {
@@ -163,18 +163,6 @@ header > p > a {
 
 .new li:nth-child(even) {
   background-color: var(--cyan);
-}
-
-@media screen and (max-width: 768px) {
-  .involveBig ol {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media screen and (max-width: 520px) {
-  .involveBig ol {
-    grid-template-columns: 1fr;
-  }
 }
 
 .card-design {
@@ -257,4 +245,38 @@ header > p > a {
 .error-icon {
   margin: var(--spacing-3);
   height: var(--font-7);
+}
+
+@media screen and (max-width: 768px) {
+  .involveBig ol {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .involveBig ol {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1000px) {
+  .new ol {
+	grid-template-columns: 1fr;
+  }
+  
+  .card-design {
+	bottom: -25px;
+	right: 10px;
+  }
+  
+  .involve img {
+    bottom: -5%;
+    right: -1%;
+  }
+}
+
+@media (max-width: 768px) {
+  .repos ul {
+    grid-template-columns: 1fr;
+  }
 }
